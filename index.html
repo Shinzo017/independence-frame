@@ -358,9 +358,9 @@ canvas.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 
 /* VIEWFINDER */
 .viewfinder{
-  flex:1;position:relative;border-radius:16px;overflow:hidden;
+  position:relative;border-radius:16px;overflow:hidden;
   background:linear-gradient(135deg,#040d18,#07111f);
-  min-height:280px;display:flex;align-items:center;justify-content:center;
+  height:380px;display:flex;align-items:center;justify-content:center;
   cursor:pointer;border:1px solid var(--border);
   transition:border-color 0.25s;
 }
@@ -477,7 +477,7 @@ canvas.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 #fileInput{display:none;}
 
 /* RIGHT PANEL */
-.studio-right{position:relative;display:flex;flex-direction:column;}
+.studio-right{position:relative;display:flex;flex-direction:column;min-height:480px;}
 .preview-area{
   flex:1;background:var(--preview-bg);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
