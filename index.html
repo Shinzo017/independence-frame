@@ -988,7 +988,7 @@ canvas.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
     <span class="amer">AMER</span>
   </div>
   <div class="header-center">
-    <div class="header-title">🇮🇳 The Independence Frame</div>
+    <div class="header-title"><svg viewBox="-45 -30 90 60" height="18" style="vertical-align:middle;margin-right:6px;border-radius:2px" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="m-45-30h90v60h-90z"/><path fill="#FF6820" d="m-45-30h90v20h-90z"/><path fill="#046A38" d="m-45 10h90v20h-90z"/><circle r="9.25" fill="#07038D"/><circle r="8" fill="#FFF"/><circle r="1.6" fill="#07038D"/></svg>The Independence Frame</div>
     <div class="header-sub">India @ 80 · August 15, 2026</div>
   </div>
   <div class="header-right">
@@ -1448,9 +1448,9 @@ canvas.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
       <rect x="225" y="120" width="25" height="70"/><rect x="300" y="120" width="25" height="70"/>
       <!-- Charminar -->
       <rect x="440" y="100" width="120" height="90"/>
-      <rect x="448" y="80" width="25" height="25"/><rect x="540" y="80" width="25" height="25"/>
-      <rect x="448" y="60" width="14" height="22"/><rect x="540" y="60" width="14" height="22"/>
-      <polygon points="455,60 462,45 469,60"/><polygon points="547,60 554,45 561,60"/>
+      <rect x="448" y="80" width="22" height="25"/><rect x="530" y="80" width="22" height="25"/>
+      <rect x="450" y="58" width="14" height="24"/><rect x="532" y="58" width="14" height="24"/>
+      <polygon points="457,58 464,43 471,58"/><polygon points="539,58 546,43 553,58"/>
       <rect x="475" y="110" width="50" height="80"/>
       <!-- Gateway of India -->
       <rect x="650" y="80" width="150" height="110"/>
@@ -1984,31 +1984,11 @@ function drawFrameOverlay(ctx, W, H) {
   ctx.textAlign = 'right'; ctx.font = `${Math.round(bh*0.68)}px serif`; ctx.fillStyle = 'rgba(255,255,255,0.9)';
   ctx.fillText(style==='ashoka'?'☸':'🇮🇳', W*0.975, H-bh/2);
 
-  // Tricolor side bars
-  const sw = Math.round(W*0.007), inner = H-2*bh;
-  ['#FF9933','#FFFFFF','#138808'].forEach((c,i) => {
-    ctx.fillStyle = c;
-    ctx.fillRect(0, bh+i*(inner/3), sw, inner/3);
-    ctx.fillRect(W-sw, bh+i*(inner/3), sw, inner/3);
-  });
 
-  // Corner brackets
-  const cs = Math.min(W,H)*0.07, co = bh*1.4;
-  ctx.lineWidth = Math.max(3,W*0.003); ctx.lineCap = 'square';
-  const bracketColor = style==='ashoka'?'#4169E1':style==='heritage'?'#c8a84b':'#FF9933';
-  ctx.strokeStyle = bracketColor;
-  ctx.beginPath(); ctx.moveTo(co,co+cs); ctx.lineTo(co,co); ctx.lineTo(co+cs,co); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(W-co-cs,co); ctx.lineTo(W-co,co); ctx.lineTo(W-co,co+cs); ctx.stroke();
-  const bc2 = style==='ashoka'?'#4169E1':style==='heritage'?'#c8a84b':'#138808';
-  ctx.strokeStyle = bc2;
-  ctx.beginPath(); ctx.moveTo(co,H-co-cs); ctx.lineTo(co,H-co); ctx.lineTo(co+cs,H-co); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(W-co-cs,H-co); ctx.lineTo(W-co,H-co); ctx.lineTo(W-co,H-co-cs); ctx.stroke();
 
-  // Watermark chakra
-  ctx.save(); ctx.globalAlpha = 0.06;
-  ctx.font = `${Math.round(Math.min(W,H)*0.22)}px serif`;
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillStyle = '#000080'; ctx.fillText('☸', W/2, H/2); ctx.restore();
+
+
+
 
   // Custom message
   if (msg) {
